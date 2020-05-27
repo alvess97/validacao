@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <center>
+    <h1>Preencha o formulario</h1>
+    <form id="formulario">
+        <div>
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" required placeholder="Maria Silva" minlength="3">
+        </div>
+
+        <br>
+        <div>
+            <label for="email">E-mail: </label>
+            <input type="email" name="email" id="email" required placeholder="maria@hotmail.com">
+        </div>
+
+        <br>
+        <div>
+            <label for="telefone">Telefone: </label>
+            <input type="text" name="telefone" id="telefone" required placeholder="(00) 00000-0000">
+        </div>
+
+        <br>
+        <div>
+            <label for="cpf">CPF: </label>
+            <input type="text" name="cpf" id="cpf" required placeholder="000.000.000-15">
+        </div>
+
+        <br>
+        <div>
+            <label for="data">Data de nascimento: </label>
+            <input type="text" name="data" id="data" required placeholder="99/99/9999">
+        </div>
+
+        <br>
+        <div>
+            <label for="cep">CEP: </label>
+            <input type="text" name="cep" id="cep" data-mask="00000-000" required placeholder="12345-6789">
+        </div>
+
+        <br>
+        <div>
+            <label for="adress">Endereço: </label>
+            <input type="text" name="adress" id="adress" required placeholder="Exemplo: Av angélica, 2565">
+        </div>
+
+        <br>
+        <div>
+            <label for="state">Estado: </label>
+            <input type="text" name="state" id="state" required placeholder="Exemplo: São Paulo">
+        </div>
+
+        <br>
+        <div>
+            <label for="city">Cidade: </label>
+            <input type="text" name="city" id="city" required placeholder="Exemplo: SP">
+        </div>
+
+        <br>
+        <input type="radio" required name="concordo" id="concordo"><label for="concordo">Eu aceito os termos de
+            uso</label>
+
+        <div>
+            <input type="submit" value="Enviar">
+        </div>
+          </form>
+          </center>
+
+    <!-- Incluir o jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
+    </script>
+
+    <!-- Incluindo o plugin validate (jQuery) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js">
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+
+
+    <!-- Trabalhando com nosso próprio script -->
+    <script type="text/javascript">
+        $("#telefone").mask("(00) 0000-0000");
+        $("#cpf").mask("000.000.000-00");
+        $("#data").mask("00/00/0000");
+        $("#cep").mask("00000-000");
+
+        $("#formulario").validate({
+            rules: {
+                nome: {
+                    required: true,
+                    minlength: 3
+                },
+                email: {
+                    required: true
+                },
+                telefone: {
+                    required: true,
+                    minlength: 8
+                },
+                cpf: {
+                    required: true,
+                    minlength: 11
+                },
+                data: {
+                    required: true,
+                    minlength: 8
+                },
+                adress: {
+                    required: true,
+                    minlength: 8
+                },
+                cep: {
+                    required: true,
+                    minlength: 8
+                },
+                state: {
+                    required: true,
+                    minlength: 4
+                },
+                city: {
+                    required: true,
+                    minlength: 7
+                },
+                concordo: {
+                    required: true,
+                }
+            },
+            messages: {
+                nome: {
+                    required: "Por favor, informe o nome!",
+                    minlength: "Insira no campo nome, pelo menos 3 caracteres!"
+                },
+                email: {
+                    required: "Preencha o campo e-mail",
+                    email: "Informe um e-mail válido: maria@hotmail.com"
+                },
+                telefone: {
+                    required: "Informe o Telefone",
+                },
+                cpf: {
+                    required: "Informe o CPF",
+                },
+                data: {
+                    required: "Informe a Data de Nascimento!",
+                },
+                adress: {
+                    required: "Informe o Endereço!",
+                },
+                cep: {
+                    required: "Informe o CEP!",
+                },
+                state: {
+                    required: "Informe o Estado!",
+                },
+                city: {
+                    required: "Informe o Cidade!",
+                },
+                concordo: {
+                    required: "Por favor, concorde com os termos de uso!",
+                }
+
+            }
+        });
+    </script>
+
+    <style type="text/css">
+        .error {
+            color: red;
+        }
+    </style>
+</body>
+
+</html>
